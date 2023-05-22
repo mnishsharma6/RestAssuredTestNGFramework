@@ -21,6 +21,12 @@ jobs:
 
       - name: Build and test
         run: mvn clean verify
+        
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Results
+          path: results/
 
       - name: Build and Push Docker Image
         uses: mr-smithers-excellent/docker-build-push@v6
